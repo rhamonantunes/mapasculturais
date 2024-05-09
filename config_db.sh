@@ -3,9 +3,9 @@ set -e
 set -u
 echo "Executando config_db.sh..."
 
-#psql -c "CREATE USER mapas"
-#createdb --owner mapas mapas
-#psql -d mapas -c "CREATE EXTENSION postgis;"
+psql -c "CREATE USER mapas"
+createdb --owner mapas mapas
+psql -d mapas -c "CREATE EXTENSION postgis;"
 echo "Executando config for database $POSTGRES_DB:"
 psql -U mapas -d mapas -c "CREATE EXTENSION unaccent;"
 psql -U mapas -f /srv/mapas/db/schema.sql
